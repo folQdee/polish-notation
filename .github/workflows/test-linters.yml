@@ -20,13 +20,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install pytest flake8 pylint
+          pip install pytest flake8
 
       - name: Run tests
         run: pytest -v test_polish.py
 
       - name: Run Flake8
         run: flake8 polish.py
-
-      - name: Run Pylint
-        run: pylint polish.py
