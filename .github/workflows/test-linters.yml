@@ -1,0 +1,32 @@
+name: CI Checks
+on: 
+  push:
+    branches:
+      - main
+      - '**'
+  pull_request: 
+    branches: [main] 
+
+jobs:
+  test-and-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install pytest flake8 pylint
+
+      - name: Run tests
+        run: pytest -v test_polish.py
+
+      - name: Run Flake8
+        run: flake8 polish.py
+
+      - name: Run Pylint
+        run: pylint polish.py
