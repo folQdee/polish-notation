@@ -1,5 +1,5 @@
 # изменил файл для проверки
-
+#
 def infix_to_rpn(expression):
     precedence = {'+': 1, '-': 1, '*': 2, '/': 2}
     output = []
@@ -33,12 +33,14 @@ def infix_to_rpn(expression):
 
     return output
 
+
 def is_float(token):
     try:
         float(token)
         return True
     except ValueError:
         return False
+
 
 def evaluate_rpn(rpn_tokens):
     stack = []
@@ -67,6 +69,7 @@ def evaluate_rpn(rpn_tokens):
 
     return stack[0]
 
+
 def main():
     expr = input("Введите арифметическое выражение: ")
     try:
@@ -76,6 +79,7 @@ def main():
         print("Результат:", result)
     except Exception as e:
         print("Ошибка:", e)
+
 
 if __name__ == "__main__":
     main()
