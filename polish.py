@@ -1,6 +1,8 @@
-# изменил файл для проверки
-#
+"""Модуль для преобразования арифметических выражений в обратную польскую запись и их вычисления
+Вот бы pylint сработал сейчас"""
+
 def infix_to_rpn(expression):
+    """Преобразует инфиксное выражение в обратную польскую запись (RPN)."""
     precedence = {'+': 1, '-': 1, '*': 2, '/': 2}
     output = []
     stack = []
@@ -35,6 +37,7 @@ def infix_to_rpn(expression):
 
 
 def is_float(token):
+    """"Проверяет тип токена"""
     try:
         float(token)
         return True
@@ -43,6 +46,7 @@ def is_float(token):
 
 
 def evaluate_rpn(rpn_tokens):
+    """Считает выражение в RNP"""
     stack = []
 
     for token in rpn_tokens:
@@ -71,13 +75,14 @@ def evaluate_rpn(rpn_tokens):
 
 
 def main():
+    """Главная функция"""
     expr = input("Введите арифметическое выражение: ")
     try:
         rpn = infix_to_rpn(expr)
         print("Обратная польская запись:", ' '.join(rpn))
         result = evaluate_rpn(rpn)
         print("Результат:", result)
-    except Exception as e:
+    except (ValueError, ZeroDivisionError) as e:
         print("Ошибка:", e)
 
 
