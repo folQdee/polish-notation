@@ -1,5 +1,6 @@
+# изменил файл для проверки
+
 def infix_to_rpn(expression):
-    """Преобразование инфиксного выражения в обратную польскую запись (RPN)"""
     precedence = {'+': 1, '-': 1, '*': 2, '/': 2}
     output = []
     stack = []
@@ -33,7 +34,6 @@ def infix_to_rpn(expression):
     return output
 
 def is_float(token):
-    """Проверка, является ли строка числом с плавающей точкой"""
     try:
         float(token)
         return True
@@ -41,7 +41,6 @@ def is_float(token):
         return False
 
 def evaluate_rpn(rpn_tokens):
-    """Вычисление значения выражения в обратной польской записи"""
     stack = []
 
     for token in rpn_tokens:
