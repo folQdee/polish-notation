@@ -28,13 +28,12 @@ def infix_to_rpn(expression):
 
     while stack:
         if stack[-1] in '()':
-            raise ValueError("Несбалансированные скобки")
+            raise ValueError("Что то со скобками")
         output.append(stack.pop())
 
     return output
 
 def is_float(token):
-    """Проверка, является ли строка числом с плавающей точкой"""
     try:
         float(token)
         return True
@@ -42,7 +41,6 @@ def is_float(token):
         return False
 
 def evaluate_rpn(rpn_tokens):
-    """Вычисление значения выражения в обратной польской записи"""
     stack = []
 
     for token in rpn_tokens:
@@ -70,7 +68,7 @@ def evaluate_rpn(rpn_tokens):
     return stack[0]
 
 def main():
-    expr = input("Введите арифметическое выражение: ")
+    expr = input("Введите выражение: ")
     try:
         rpn = infix_to_rpn(expr)
         print("Обратная польская запись:", ' '.join(rpn))
